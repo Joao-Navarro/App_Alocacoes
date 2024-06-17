@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { View, Button, Text, FlatList, StyleSheet } from 'react-native';
 
 // Define a URL base da API, ajuste conforme necessário
-const API_URL = "http://10.136.42.83:3000/"; // Ajuste para o seu IP
+const API_URL = "http://10.136.37.247:3000"; // Ajuste para o seu IP
 
 // Componente principal da tela SearchScreen
 export default function AlocacaoScreen() {
@@ -31,7 +31,7 @@ export default function AlocacaoScreen() {
     return (
         <View style={styles.container}>
             {/* Botão para buscar todos os professores */}
-            <Button title="Consultar" onPress={fetchAllAlocacao} color={'#CC0000'} />
+            <Button style={styles.button} title="Consultar" onPress={fetchAllAlocacao} color={"#E76F51"}/>
             {/* Exibe a lista de professores, se existir */}
             {alocacao.length > 0 && (
                 <FlatList
@@ -58,19 +58,23 @@ const styles = StyleSheet.create({
     container: {
         flex: 1, // Ocupa todo o espaço disponível
         padding: 20, // Espaçamento interno
-        backgroundColor: "#fff", // Cor de fundo branca
+        backgroundColor: '#264653', // Cor de fundo branca
     },
     alocacao: {
         padding: 10, // Espaçamento interno
         marginTop: 20, // Margem superior
         borderBottomColor: "#ccc", // Cor da borda inferior
         borderBottomWidth: 1, // Largura da borda inferior
+        color: "#ccc"
     },
     error: {
         color: 'red', // Cor do texto do erro
         marginTop: 20, // Margem superior
     },
     button: {
+
+        color: "#E76F51",
+        margin: 1
 
     }
 });

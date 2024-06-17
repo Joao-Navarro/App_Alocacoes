@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { View, Button, Text, FlatList, StyleSheet } from 'react-native';
 
 // Define a URL base da API, ajuste conforme necessário
-const API_URL = "http://10.136.37.10:3000/"; // Ajuste para o seu IP
+const API_URL = "http://10.136.37.247:3000"; // Ajuste para o seu IP
 
 // Componente principal da tela SearchScreen
 export default function SalaScreen() {
@@ -31,14 +31,14 @@ export default function SalaScreen() {
     return (
         <View style={styles.container}>
             {/* Botão para buscar todos os professores */}
-            <Button title="Consultar" onPress={fetchAllSala} color={'#CC0000'} />
+            <Button title="Consultar" onPress={fetchAllSala} color={"#E76F51"} />
             {/* Exibe a lista de professores, se existir */}
-            {alocacoes.length > 0 && (
+            {salas.length > 0 && (
                 <FlatList
                     data={salas} // Dados da lista de professores
                     keyExtractor={(item) => item.id.toString()} // Função para extrair a chave de cada item
                     renderItem={({ item }) => (
-                        <View style={styles.Sala}>
+                        <View style={styles.salas}>
               
                             <Text>Nome sala: {item.nomesala}</Text>
                             <Text>Bloco: {item.bloco}</Text>
@@ -58,13 +58,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1, // Ocupa todo o espaço disponível
         padding: 20, // Espaçamento interno
-        backgroundColor: "#fff", // Cor de fundo branca
+        backgroundColor: '#264653', // Cor de fundo branca
     },
-    alocacoes: {
+    salas: {
         padding: 10, // Espaçamento interno
         marginTop: 20, // Margem superior
         borderBottomColor: "#ccc", // Cor da borda inferior
         borderBottomWidth: 1, // Largura da borda inferior
+        color: "#ccc"
     },
     error: {
         color: 'red', // Cor do texto do erro

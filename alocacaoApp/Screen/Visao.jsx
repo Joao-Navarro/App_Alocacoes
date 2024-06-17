@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, Text, FlatList, StyleSheet } from 'react-native';
 
 // Define a URL base da API, ajuste conforme necessário
-const API_URL = "http://10.136.37.10:3000/"; // Ajuste para o seu IP
+const API_URL = "http://10.136.37.247:3000"; // Ajuste para o seu IP
 
 // Componente principal da tela SearchScreen
 export default function DetalhesScreen() {
 
-    const [id, setId] = useState('');
+    const [id, setId] = useState([]);
     const [detalhe, setDetalhe] = useState(null);
     const [error, setError] = useState(null); // Estado para erros
 
@@ -21,12 +21,25 @@ export default function DetalhesScreen() {
                 throw new Error(errorResponse); // Lança um erro com a resposta
             }
             const data = await response.json(); // Converte a resposta para JSON
-            setDetalhe(data); // Atualiza o estado com o produto buscado
+            if (Array.isArray(data) && data.length > 0) {
+
+                setDetalhe(data[0])
+
+            }
+
+            else {
+
+                setDetalhe(null)
+                setError("Visão não encontrado")
+
+            }
+
             setError(null); // Reseta o estado de erro
+        
         } catch (error) {
             console.error("Erro ao buscar detalhe:", error); // Loga o erro no console
             setError("Detalhe não encontrado"); // Define a mensagem de erro
-            setProduct(null); // Reseta o estado do produto
+            setDetalhe(null); // Reseta o estado do produto
         }
     };
 
@@ -42,14 +55,14 @@ export default function DetalhesScreen() {
             />
             {/* Botão para buscar um produto específico */}
             <Button title="Pesquisar" onPress={PesquisaDetalhe}
-                color={'#CC0000'} />
+                color={"#E76F51"} />
             {/* Exibe a lista de professores, se existir */}
             {detalhe && (
                 <View style={styles.detalhes}>
-                    <Text>Nome Prosfessor: {detalhe.professor}</Text>
-                    <Text>Nome Sala: {detalhe.sala}</Text>
+                    <Text>Nome Prosfessor: {detalhe.Nome_Professor}</Text>
+                    <Text>Nome Sala: {detalhe.nomesala}</Text>
                     <Text>Bloco: {detalhe.bloco}</Text>
-                    <Text>Dia da semana: {detalhe.dia}</Text>
+                    <Text>Dia da semana: {detalhe.dia_semana}</Text>
                     <Text>Período: {detalhe.período}</Text>
                 </View>
             )}
@@ -65,7 +78,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1, // Ocupa todo o espaço disponível
         padding: 20, // Espaçamento interno
-        backgroundColor: "#fff", // Cor de fundo branca
+        backgroundColor: '#264653', // Cor de fundo branca
     },
     detalhes: {
         padding: 10, // Espaçamento interno
