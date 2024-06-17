@@ -59,11 +59,11 @@ export default function DetalhesScreen() {
             {/* Exibe a lista de professores, se existir */}
             {detalhe && (
                 <View style={styles.detalhes}>
-                    <Text>Nome Prosfessor: {detalhe.Nome_Professor}</Text>
-                    <Text>Nome Sala: {detalhe.nomesala}</Text>
-                    <Text>Bloco: {detalhe.bloco}</Text>
-                    <Text>Dia da semana: {detalhe.dia_semana}</Text>
-                    <Text>Período: {detalhe.período}</Text>
+                    <Text style={styles.text1}>Nome Prosfessor: {detalhe.Nome_Professor}</Text>
+                    <Text style={styles.text1}>Nome Sala: {detalhe.nomesala}</Text>
+                    <Text style={styles.text1}>Bloco: {detalhe.bloco}</Text>
+                    <Text style={styles.text1}>Dia da semana: {detalhe.dia_semana}</Text>
+                    <Text style={styles.text1}>Período: {detalhe.período}</Text>
                 </View>
             )}
             {console.log(detalhe)}
@@ -96,5 +96,10 @@ const styles = StyleSheet.create({
         borderWidth: 1, // Largura da borda
         marginBottom: 10, // Margem inferior
         padding: 10, // Espaçamento interno
+        color: "#FFF"
+    },
+
+    text1: {
+        color: "#FFF",
     },
 });

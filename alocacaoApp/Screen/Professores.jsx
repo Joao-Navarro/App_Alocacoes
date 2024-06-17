@@ -40,8 +40,8 @@ export default function ProfessoresScreen() {
                     renderItem={({ item }) => (
                         <View style={styles.professores}>
                        
-                            <Text>nome: {item.nome}</Text>
-                            <Text>telefone: {item.telefone}</Text>
+                            <Text style={styles.text1}>nome: {item.nome}</Text>
+                            <Text style={styles.text1}>telefone: {item.telefone}</Text>
                         
                         </View>
                     )}
@@ -73,5 +73,9 @@ const styles = StyleSheet.create({
     },
     button: {
 
-    }
+    },
+
+    text1:{
+        color:"#FFF",
+    },
 });

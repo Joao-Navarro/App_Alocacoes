@@ -40,8 +40,8 @@ export default function SalaScreen() {
                     renderItem={({ item }) => (
                         <View style={styles.salas}>
               
-                            <Text>Nome sala: {item.nomesala}</Text>
-                            <Text>Bloco: {item.bloco}</Text>
+                            <Text style={styles.text1}>Nome sala: {item.nomesala}</Text>
+                            <Text style={styles.text1}>Bloco: {item.bloco}</Text>
                           
                         </View>
                     )}
@@ -73,5 +73,11 @@ const styles = StyleSheet.create({
     },
     button: {
 
-    }
+    },
+
+    text1:{
+
+        color:"#FFF",
+
+    },
 });

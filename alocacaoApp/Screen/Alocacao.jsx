@@ -39,10 +39,10 @@ export default function AlocacaoScreen() {
                     keyExtractor={(item) => item.id.toString()} // Função para extrair a chave de cada item
                     renderItem={({ item }) => (
                         <View style={styles.alocacao}>
-                            <Text>ID Professor: {item.id_professor}</Text>
-                            <Text>ID sala: {item.id_sala}</Text>
-                            <Text>Dia semana: {item.dia_semana}</Text>
-                            <Text>Período: {item.período}</Text>
+                            <Text style={styles.text1}>ID Professor: {item.id_professor}</Text>
+                            <Text style={styles.text1}>ID sala: {item.id_sala}</Text>
+                            <Text style={styles.text1}>Dia semana: {item.dia_semana}</Text>
+                            <Text style={styles.text1}>Período: {item.período}</Text>
                         </View>
                     )}
                 />
@@ -76,5 +76,10 @@ const styles = StyleSheet.create({
         color: "#E76F51",
         margin: 1
 
-    }
+    },
+
+    text1:{
+        
+        color:"#FFF",
+    },
 });
